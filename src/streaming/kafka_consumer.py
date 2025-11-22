@@ -5,10 +5,11 @@ Simple Kafka consumer to demonstrate real-time processing.
 
 import json
 import logging
-from kafka import KafkaConsumer
-from datetime import datetime
 import signal
 import sys
+from datetime import datetime
+
+from kafka import KafkaConsumer
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

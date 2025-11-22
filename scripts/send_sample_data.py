@@ -5,13 +5,14 @@ Sends realistic test data to all Kafka topics.
 """
 
 import json
+import logging
 import random
 import time
-from datetime import datetime, timedelta
-from kafka import KafkaProducer
-from typing import Dict, Any
 import uuid
-import logging
+from datetime import datetime, timedelta
+from typing import Any, Dict
+
+from kafka import KafkaProducer
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

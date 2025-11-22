@@ -1,10 +1,11 @@
 """Integration tests for Kafka connectivity."""
 
-import pytest
 import json
-from kafka import KafkaProducer, KafkaConsumer
-from kafka.errors import NoBrokersAvailable
 import time
+
+import pytest
+from kafka import KafkaConsumer, KafkaProducer
+from kafka.errors import NoBrokersAvailable
 
 
 @pytest.fixture(scope="module")
