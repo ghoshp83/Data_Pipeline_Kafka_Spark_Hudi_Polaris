@@ -5,11 +5,12 @@ Demonstrates basic usage of all components.
 """
 
 import json
+import logging
 import time
 import uuid
 from datetime import datetime
+
 from kafka import KafkaProducer
-import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

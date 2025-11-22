@@ -3,12 +3,13 @@
 Real DuckDB Web UI - Downloads S3 files and queries locally
 """
 
-from flask import Flask, render_template_string, request, jsonify
-import duckdb
-import boto3
 import os
 import subprocess
 from pathlib import Path
+
+import boto3
+import duckdb
+from flask import Flask, jsonify, render_template_string, request
 
 app = Flask(__name__)
 

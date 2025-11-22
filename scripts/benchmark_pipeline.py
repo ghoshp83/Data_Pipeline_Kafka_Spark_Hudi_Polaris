@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Performance benchmarking script for the data pipeline."""
 
-import time
-import json
-from kafka import KafkaProducer
-from datetime import datetime
 import argparse
+import json
 import statistics
+import time
+from datetime import datetime
+
+from kafka import KafkaProducer
 
 
 def benchmark_throughput(

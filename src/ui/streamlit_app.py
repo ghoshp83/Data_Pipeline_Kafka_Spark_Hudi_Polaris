@@ -4,15 +4,15 @@ Streamlit UI for the Data Pipeline.
 Provides interface to send data and monitor the pipeline.
 """
 
-import streamlit as st
 import json
-import pandas as pd
-from datetime import datetime
-from kafka import KafkaProducer
 import uuid
-import plotly.express as px
+from datetime import datetime
+from typing import Any, Dict
 
-from typing import Dict, Any
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+from kafka import KafkaProducer
 
 # Page config
 st.set_page_config(

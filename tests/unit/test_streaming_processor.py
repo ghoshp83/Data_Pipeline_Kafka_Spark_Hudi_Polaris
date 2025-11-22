@@ -3,12 +3,14 @@
 Unit tests for the Spark streaming processor.
 """
 
-import pytest
 import json
-from unittest.mock import Mock, patch, MagicMock
-from pyspark.sql.types import StructType, StructField, StringType, TimestampType
-import sys
 import os
+import sys
+from unittest.mock import MagicMock, Mock, patch
+
+import pytest
+from pyspark.sql.types import (StringType, StructField, StructType,
+                               TimestampType)
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../src"))
