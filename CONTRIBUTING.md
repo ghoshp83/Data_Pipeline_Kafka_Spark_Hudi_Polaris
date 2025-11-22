@@ -73,12 +73,44 @@ source .venv/bin/activate
 pip install -r requirements.txt
 pip install black flake8 pytest pytest-cov
 
+# Install pre-commit hooks (optional but recommended)
+pip install pre-commit
+pre-commit install
+
 # Start infrastructure
 docker-compose up -d
 
 # Run tests
 pytest tests/ -v
 ```
+
+### Pre-commit Hooks (Recommended)
+
+Pre-commit hooks automatically check your code before each commit:
+
+```bash
+# Install pre-commit
+pip install pre-commit
+
+# Install the git hooks
+pre-commit install
+
+# Run manually on all files
+pre-commit run --all-files
+```
+
+**What pre-commit checks:**
+- ✅ Trailing whitespace removal
+- ✅ End-of-file fixing
+- ✅ YAML/JSON validation
+- ✅ Large file detection
+- ✅ Merge conflict detection
+- ✅ Debug statement detection
+- ✅ Black formatting
+- ✅ isort import sorting
+- ✅ flake8 linting
+- ✅ Bandit security scanning
+- ✅ Secrets detection
 
 ## Pull Request Guidelines
 
