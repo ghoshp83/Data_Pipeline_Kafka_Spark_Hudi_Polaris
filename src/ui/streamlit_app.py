@@ -312,9 +312,7 @@ def show_sensor_data_form(pipeline):
             if pipeline.send_to_kafka("sensor_data", data, sensor_id.strip()):
                 st.success("✅ Sensor data sent successfully!")
                 st.json(data)
-                st.info(
-                    "💡 Form will reset after submission. Modify values above and submit again."
-                )
+                st.info("💡 Form will reset after submission. Modify values above and submit again.")
             else:
                 st.error("❌ Failed to send sensor data. Check Kafka connection.")
 
@@ -351,9 +349,7 @@ def show_log_events_form(pipeline):
             if pipeline.send_to_kafka("log_events", data, service):
                 st.success("✅ Log event sent successfully!")
                 st.json(data)
-                st.info(
-                    "💡 Form will reset after submission. Modify values above and submit again."
-                )
+                st.info("💡 Form will reset after submission. Modify values above and submit again.")
             else:
                 st.error("❌ Failed to send log event. Check Kafka connection.")
 
@@ -386,9 +382,7 @@ def show_bulk_upload_form(pipeline):
             if pipeline.send_to_kafka("bulk_upload", data, batch_id):
                 st.success("✅ Bulk upload event sent successfully!")
                 st.json(data)
-                st.info(
-                    "💡 Form will reset after submission. Modify values above and submit again."
-                )
+                st.info("💡 Form will reset after submission. Modify values above and submit again.")
             else:
                 st.error("❌ Failed to send bulk upload event. Check Kafka connection.")
 

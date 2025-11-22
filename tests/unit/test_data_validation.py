@@ -57,7 +57,7 @@ def test_config_defaults():
     default_kafka = "localhost:9092"
     default_bucket = "data-pipeline-bucket"
     default_table_type = "COPY_ON_WRITE"
-    
+
     assert default_kafka == "localhost:9092"
     assert default_bucket == "data-pipeline-bucket"
     assert default_table_type == "COPY_ON_WRITE"
@@ -67,6 +67,6 @@ def test_unsupported_topic_validation():
     """Test that unsupported topics are properly validated."""
     supported_topics = ["user_events", "transactions", "sensor_data", "log_events", "bulk_upload"]
     invalid_topic = "invalid_topic"
-    
+
     assert invalid_topic not in supported_topics
     assert "user_events" in supported_topics

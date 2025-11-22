@@ -17,7 +17,6 @@ from streaming.spark_streaming_processor import DataPipelineProcessor
 
 
 class TestDataPipelineProcessor:
-
     @pytest.fixture
     def processor(self):
         """Create a processor instance for testing."""
