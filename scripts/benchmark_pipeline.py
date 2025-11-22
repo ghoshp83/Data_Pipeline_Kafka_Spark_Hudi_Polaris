@@ -62,12 +62,8 @@ def benchmark_throughput(
     # Calculate metrics
     throughput = num_messages / duration
     avg_latency = statistics.mean(latencies) if latencies else 0
-    p95_latency = (
-        statistics.quantiles(latencies, n=20)[18] if len(latencies) > 20 else 0
-    )
-    p99_latency = (
-        statistics.quantiles(latencies, n=100)[98] if len(latencies) > 100 else 0
-    )
+    p95_latency = statistics.quantiles(latencies, n=20)[18] if len(latencies) > 20 else 0
+    p99_latency = statistics.quantiles(latencies, n=100)[98] if len(latencies) > 100 else 0
 
     print("\n" + "=" * 60)
     print("📈 Benchmark Results")
@@ -89,21 +85,13 @@ def main():
         default="localhost:9092",
         help="Kafka bootstrap servers",
     )
-    parser.add_argument(
-        "--topic", default="user_events", help="Kafka topic to benchmark"
-    )
-    parser.add_argument(
-        "--messages", type=int, default=10000, help="Number of messages to send"
-    )
-    parser.add_argument(
-        "--batch-size", type=int, default=100, help="Batch size for flushing"
-    )
+    parser.add_argument("--topic", default="user_events", help="Kafka topic to benchmark")
+    parser.add_argument("--messages", type=int, default=10000, help="Number of messages to send")
+    parser.add_argument("--batch-size", type=int, default=100, help="Batch size for flushing")
 
     args = parser.parse_args()
 
-    benchmark_throughput(
-        args.bootstrap_servers, args.topic, args.messages, args.batch_size
-    )
+    benchmark_throughput(args.bootstrap_servers, args.topic, args.messages, args.batch_size)
 
 
 if __name__ == "__main__":

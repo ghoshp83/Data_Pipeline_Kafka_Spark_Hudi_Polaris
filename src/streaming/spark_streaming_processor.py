@@ -221,7 +221,6 @@ class DataPipelineProcessor:
         logger.info(f"Starting stream processing for topic: {topic}")
 
         try:
-
             # Read from Kafka
             df = (
                 self.spark.readStream.format("kafka")
