@@ -158,19 +158,19 @@ jobs:
     
     - name: Test Docker Compose
       run: |
-        docker-compose config
-        docker-compose up -d
+        docker compose config
+        docker compose up -d
         sleep 30
-        docker-compose ps
-        docker-compose logs
-        docker-compose down -v
+        docker compose ps
+        docker compose logs
+        docker compose down -v
     
     - name: Check service health
       run: |
-        docker-compose up -d
+        docker compose up -d
         sleep 30
         # Check Kafka
-        docker exec kafka kafka-topics --list --bootstrap-server localhost:9092 || exit 1
+        docker compose exec kafka kafka-topics --list --bootstrap-server localhost:9092 || exit 1
         # Check LocalStack
         curl -f http://localhost:4566/_localstack/health || exit 1
-        docker-compose down -v
+        docker compose down -v
