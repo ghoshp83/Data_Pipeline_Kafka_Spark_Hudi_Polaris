@@ -212,6 +212,18 @@ Each topic has a predefined schema for data validation:
 }
 ```
 
+## 🛣️ Roadmap
+
+### Polaris Catalog Integration (Phase 2)
+The current pipeline registers Hudi tables via `HoodieCatalog` and is consumable end-to-end without Polaris. The Polaris catalog wiring is the next milestone — the README and architecture diagram above describe the **target** topology that this section will deliver:
+
+- **Polaris server**: `apache/polaris` container added to `docker-compose.yml` alongside the existing services
+- **Spark configuration**: `spark.sql.catalog.polaris` REST catalog wired in `spark_streaming_processor.py` so tables can be registered via Polaris's REST API
+- **Table registration**: at least one Hudi table surfaced through Polaris so Snowflake / Trino / DuckDB can discover it via the catalog rather than direct path access
+- **Why it matters**: separates the storage format (Hudi) from the metadata catalog (Polaris) — the same architectural separation Iceberg + REST catalog deployments rely on, applied to a Hudi lakehouse
+
+Tracking against this milestone happens in [CHANGELOG.md](CHANGELOG.md). PRs welcome.
+
 ## 🏭 Production Deployment
 
 For production environments:
